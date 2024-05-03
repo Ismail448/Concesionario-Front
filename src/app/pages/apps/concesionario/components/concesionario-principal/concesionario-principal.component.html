@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title text-center">Concesionarios</h4>
+        <div class="table-responsive">
+          <table class="table align-middle text-nowrap">
+            <thead>
+              <tr>
+                <th class="text-dark font-medium fs-4">Id</th>
+                <th class="text-dark font-medium fs-4">Nombre</th>
+                <th class="text-dark font-medium fs-4">Direccion</th>
+                <th class="text-dark font-medium fs-4">Telefono</th>
+                <th class="text-dark font-medium fs-4">Email</th>
+                <th class="text-dark font-medium fs-4">Sitio Web</th>
+                <th class="text-dark font-medium fs-4">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of paginatedConcesionario">
+                <td>{{c.id}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.direccion}}</td>
+                <td>{{c.telefono}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.sitioWeb}}</td>
+                <td>
+                  <button class="btn btn-primary" (click)="editarConcesionario(c)">Editar</button>
+                  <button class="btn btn-danger" (click)="eliminarConcesionario(c)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <div class="card-body border-top">
+        <ngb-pagination
+          [collectionSize]="concesionarios.length"
+          [(page)]="currentPage"
+          [pageSize]="pageSize"
+          (pageChange)="onPageChange($event)"
+          aria-label="Pagination"
+        ></ngb-pagination>
+      </div>
+    </div>
+</div>
+
+<div class="text-end">
+  <button (click)="crearElConcesionario()"><img src="assets/images/logos/botonMas.png"  width="50"/></button>
+</div>

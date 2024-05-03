@@ -1,0 +1,40 @@
+<h3>Añadir Marca</h3>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Nombre Marca" class="form-control" #txtNombreMarca>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Pais de Origen" class="form-control" #txtPaisOrigen>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Sitio Web" class="form-control" #txtSitioWeb>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Teléfono" class="form-control" #txtTelefono>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Año de Fundación" class="form-control" #txtAnyoFundacion>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+    Selección de modelos disponibes
+  </button>
+  <div class="dropdown-menu" [class.show]="dropdownOpen">
+    <div *ngFor="let m of modelos">
+      <label class="dropdown-item">
+        <input type="checkbox" [(ngModel)]="modeloSeleccionado[m.id]" [value]="m.id"> Id: {{ m.id }} - Nombre: {{ m.nombre }}
+      </label>
+    </div>
+    <button class="btn btn-primary" (click)="confirmarSeleccion()">Confirmar</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="crearMarca(txtNombreMarca.value,txtPaisOrigen.value,txtSitioWeb.value,txtTelefono.value,txtAnyoFundacion.value,selectedModelos)">Crear Marca</button>
+  </div>
+</div>

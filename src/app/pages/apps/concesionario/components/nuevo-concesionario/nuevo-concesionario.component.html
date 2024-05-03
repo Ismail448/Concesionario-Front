@@ -1,0 +1,135 @@
+<!-- <h3>Añadir Concesionario</h3>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" [placeholder]="'Nombre Concesionario'" class="form-control" #txtNombreConcesionario>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Dirección '" class="form-control" #txtDireccion>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Teléfono'" class="form-control" #txtTelefono>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" [placeholder]="'Email'" class="form-control" #txtEmail>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Sitio Web'" class="form-control" #txtSitioWeb>
+  </div>
+</div>
+<h4>Añadir Marca</h4>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" [placeholder]="'Id Marca'" class="form-control" #txtIdMarca>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Nombre'" class="form-control" #txtNombreMarca>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'País Origen'" class="form-control" #txtPaisOrigen>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" [placeholder]="'Sitio Web Marca'" class="form-control" #txtSitioWebMarca>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Teléfono Marca'" class="form-control" #txtTelefonoMarca>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Año Fundación'" class="form-control" #txtAnyoFundacion>
+  </div>
+</div>
+<h4>Añadir Modelo</h4>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" [placeholder]="'Id Modelo'" class="form-control" #txtIdModelo>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Nombre'" class="form-control" #txtNombreModelo>
+  </div>
+</div>
+  <div class="row mb-3">
+    <div class="col">
+    <input type="text" [placeholder]="'Tipo de Coche '" class="form-control" #txtTipoCoche>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Año de Lanzamiento'" class="form-control" #txtAnyoLanzamientoModelo>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Marca ID'" class="form-control" #txtMarcaId>
+  </div>
+  </div>
+<h4>Añadir Coche</h4>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" [placeholder]="'Id Coche'" class="form-control" #txtIdCoche>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Color'" class="form-control" #txtColor>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Matrícula '" class="form-control" #txtMatricula>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Precio'" class="form-control" #txtPrecio>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Fecha de Fabricación'" class="form-control" #txtFechaFabricacion>
+  </div>
+  <div class="col">
+    <input type="text" [placeholder]="'Modelo ID'" class="form-control" #txtModeloId>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="crearConcesionario(
+      txtNombreConcesionario.value, txtDireccion.value, txtTelefono.value, txtEmail.value, txtSitioWeb.value,
+      txtIdMarca.value, txtNombreMarca.value, txtPaisOrigen.value, txtSitioWebMarca.value, txtTelefonoMarca.value,
+      txtAnyoFundacion.value, txtIdModelo.value, txtNombreModelo.value, txtTipoCoche.value, txtAnyoLanzamientoModelo.value,txtMarcaId.value,
+      txtIdCoche.value, txtColor.value, txtMatricula.value, txtPrecio.value, txtFechaFabricacion.value,txtModeloId.value
+    )">Crear Concesionario</button>
+  </div>
+</div> -->
+
+<h3>Añadir Concesionario</h3>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Nombre Concesionario" class="form-control" #txtNombreConcesionario>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Dirección" class="form-control" #txtDireccion>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Teléfono" class="form-control" #txtTelefono>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Email" class="form-control" #txtEmail>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Sitio Web" class="form-control" #txtSitioWeb>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+    Selección de marcas disponibes
+  </button>
+  <div class="dropdown-menu" [class.show]="dropdownOpen">
+    <div *ngFor="let m of marcas">
+      <label class="dropdown-item">
+        <input type="checkbox" [(ngModel)]="marcaSeleccionada[m.id]" [value]="m.id"> Id: {{ m.id }} - Nombre: {{ m.nombre }}
+      </label>
+    </div>
+    <button class="btn btn-primary" (click)="confirmarSeleccion()">Confirmar</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="crearConcesionario(txtNombreConcesionario.value,txtDireccion.value,txtTelefono.value,txtEmail.value,txtSitioWeb.value,selectedMarcas)">Crear Concesionario</button>
+  </div>
+</div>
