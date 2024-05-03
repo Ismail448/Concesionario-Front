@@ -13,25 +13,6 @@ export class ConcesionarioService {
 
   constructor(private http: HttpClient) { }
 
-  registrarConcesionario(concesionario: any): Observable<Concesionario[]> {
-    const url = `${this.baseUrl}/ConcesionarioJson`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(url, concesionario, { headers })
-  }
-
-  actualizarConcesionario(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): Observable<Concesionario[]> {
-    const url = `${this.baseUrl}/ConcesionarioJson/${term}`;
-    const body = {
-      "id": term,
-      "nombre": nombreConcesionario,
-      "direccion": direccion,
-      "telefono": telefono,
-      "email": email,
-      "sitioWeb": sitioWeb
-    }
-    return this.http.put<Concesionario[]>(url, body)
-  }
-
   eliminarConcesionario(term: string): Observable<Concesionario[]> {
     const url = `${ this.baseUrl }/${ term }`;
     return this.http.delete<Concesionario[]>( url )
@@ -56,6 +37,20 @@ export class ConcesionarioService {
 
     return this.http.post<Concesionario[]>(`http://localhost:8081/concesionario/ConcesionarioJson`, body);
   }
+
+  editarConcesionario(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): Observable<Concesionario[]> {
+    const url = `${this.baseUrl}/ConcesionarioJson/${term}`;
+    const body = {
+      "id": term,
+      "nombre": nombreConcesionario,
+      "direccion": direccion,
+      "telefono": telefono,
+      "email": email,
+      "sitioWeb": sitioWeb
+    }
+    return this.http.put<Concesionario[]>(url, body)
+  }
+
 
 
   /*buscarConcesionariosPaginados(page: number = 0, size: number = 10): Observable<Page<Concesionario>> {

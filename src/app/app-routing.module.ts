@@ -24,6 +24,10 @@ export const Approutes: Routes = [
       {
         path: 'marca',
         loadChildren: () => import('./pages/apps/marca/marca.module').then(m => m.MarcaModule)
+      },
+      {
+        path: 'modelo',
+        loadChildren: () => import('./pages/apps/modelo/modelo.module').then(m => m.ModeloModule)
       }
     ]
   },

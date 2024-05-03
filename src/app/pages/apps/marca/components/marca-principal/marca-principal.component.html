@@ -13,6 +13,7 @@
                 <th class="text-dark font-medium fs-4">sitio Web</th>
                 <th class="text-dark font-medium fs-4">Teléfono</th>
                 <th class="text-dark font-medium fs-4">Año de Fundación</th>
+                <th class="text-dark font-medium fs-4">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -24,8 +25,8 @@
                 <td>{{m.telefono}}</td>
                 <td>{{m.anyoFundacion}}</td>
                 <td>
-                  <!-- <button class="btn btn-primary" (click)="editarConcesionario(c)">Editar</button>
-                  <button class="btn btn-danger" (click)="eliminarConcesionario(c)">Eliminar</button> -->
+                  <!-- <button class="btn btn-primary" (click)="editarConcesionario(c)">Editar</button> -->
+                  <button class="btn btn-danger" (click)="eliminarMarca(m)">Eliminar</button>
                 </td>
               </tr>
             </tbody>

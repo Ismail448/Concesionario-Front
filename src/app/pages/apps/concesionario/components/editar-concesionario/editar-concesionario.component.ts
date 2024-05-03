@@ -24,8 +24,8 @@ export class EditarConcesionarioComponent {
       }
     }
 
-    actualizarConcesionario(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): void {
-      this.concesionarioService.actualizarConcesionario(
+    editarConcesionario(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): void {
+      this.concesionarioService.editarConcesionario(
         term,nombreConcesionario,direccion,telefono,email,sitioWeb)
         .subscribe(concesionarioEditar => {
           if (Array.isArray(concesionarioEditar)) {
@@ -39,7 +39,7 @@ export class EditarConcesionarioComponent {
     }
 
     editar(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): void {
-      this.actualizarConcesionario(term,nombreConcesionario,direccion,telefono,email,sitioWeb);
+      this.editarConcesionario(term,nombreConcesionario,direccion,telefono,email,sitioWeb);
       location.reload()
     }
 }

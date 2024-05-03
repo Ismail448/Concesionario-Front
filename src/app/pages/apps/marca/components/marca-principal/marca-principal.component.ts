@@ -3,6 +3,7 @@ import { Marca } from '../../interfaces/marca.model';
 import { ModalService } from '@developer-partners/ngx-modal-dialog';
 import { MarcaService } from '../../services/marca.service';
 import { NuevaMarcaComponent } from '../nueva-marca/nueva-marca.component';
+import { EliminarMarcaComponent } from '../eliminar-marca/eliminar-marca.component';
 
 @Component({
   selector: 'app-marca-principal',
@@ -38,6 +39,18 @@ export class MarcaPrincipalComponent {
   getConcesionarios(): void {
     this.marcaService.getMarcas()
       .subscribe(marcas => this.marcas = marcas);
+  }
+
+  eliminarMarca(marca: Marca): void {
+    this.modalService.show<Marca>(EliminarMarcaComponent, {
+      title: 'Eliminar Marca',
+      model: marca,
+    }).result().subscribe(borrarMarca => {
+      const index = this.marcas?.findIndex(i => i.id === marca.id);
+      if (index !== -1) {
+        this.marcas[index] = borrarMarca;
+      }
+    });
   }
 
   crearLaMarca():void {

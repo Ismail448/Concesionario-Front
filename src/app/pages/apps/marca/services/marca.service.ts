@@ -32,4 +32,9 @@ export class MarcaService {
     }
     return this.http.post<Marca[]>(`http://localhost:8081/marcas/MarcaJson`, body)
   }
+
+  eliminarMarca(id: string): Observable<Marca[]> {
+    const url = `${ this.baseUrl }/${ id }`;
+    return this.http.delete<Marca[]>( url )
+  }
 }
