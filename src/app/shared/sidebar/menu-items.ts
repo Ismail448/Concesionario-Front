@@ -5,7 +5,6 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/dashboard',
     title: 'Dashboard',
-    icon: 'bi bi-speedometer2',
     class: '',
     extralink: false,
     submenu: []
@@ -13,7 +12,6 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/concesionario',
     title: 'Concesionarios',
-    icon: 'ConcesionarioLogo',
     class: '',
     extralink: false,
     submenu: []
@@ -21,7 +19,6 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/marca',
     title: 'Marcas',
-    icon: 'bi bi-bell',
     class: '',
     extralink: false,
     submenu: []
@@ -29,7 +26,6 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/modelo',
     title: 'Modelos',
-    icon: 'bi bi-bell',
     class: '',
     extralink: false,
     submenu: []
@@ -37,7 +33,6 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/coche',
     title: 'Coches',
-    icon: 'bi bi-bell',
     class: '',
     extralink: false,
     submenu: []

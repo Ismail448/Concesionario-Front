@@ -20,7 +20,7 @@ export class NuevaMarcaComponent {
   paisOrigen: string = ''
   sitioWeb: string = ''
   telefono: string = ''
-  anyoFundacion: string = ''
+  anyoFundacion: number = 0
 
   constructor(
     private marcaService: MarcaService,
@@ -44,7 +44,7 @@ export class NuevaMarcaComponent {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  crearMarca(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: string, idModelo: string[]): void {
+  crearMarca(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: number, idModelo: string[]): void {
     this.marcaService.crearMarca(nombreMarca, paisOrigen, sitioWeb, telefono, anyoFundacion, idModelo)
     .subscribe(marcaCrear => {
         this.marcaCrear = marcaCrear;
@@ -53,7 +53,7 @@ export class NuevaMarcaComponent {
     });
   }
 
-  crear(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: string, idModelo: string[]): void {
+  crear(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: number, idModelo: string[]): void {
     this.crearMarca(nombreMarca,paisOrigen,sitioWeb,telefono,anyoFundacion,idModelo);
     //location.reload();
   }

@@ -124,10 +124,10 @@
         <input type="checkbox" [(ngModel)]="marcaSeleccionada[m.id]" [value]="m.id"> Id: {{ m.id }} - Nombre: {{ m.nombre }}
       </label>
     </div>
-    <button class="btn btn-primary" (click)="confirmarSeleccion()">Confirmar</button>
+    <button class="btn btn-primary" type="button" (click)="confirmarSeleccion()">Confirmar</button>
   </div>
 </div>
-
+<br>
 <div class="row">
   <div class="col">
     <button class="btn btn-primary" (click)="crearConcesionario(txtNombreConcesionario.value,txtDireccion.value,txtTelefono.value,txtEmail.value,txtSitioWeb.value,selectedMarcas)">Crear Concesionario</button>

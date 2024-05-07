@@ -22,7 +22,7 @@ export class MarcaPrincipalComponent {
   ) { }
 
   public currentPage = 1;
-  public pageSize = 7;
+  public pageSize = 5;
 
   get paginatedMarca() {
     const startIndex = (this.currentPage - 1) * this.pageSize;

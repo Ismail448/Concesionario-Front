@@ -2,7 +2,7 @@
 export interface RouteInfo {
   path: string;
   title: string;
-  icon: string;
+  //icon: string;
   class: string;
   extralink: boolean;
   submenu: RouteInfo[];

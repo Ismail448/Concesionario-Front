@@ -27,7 +27,6 @@ import { ModeloPrincipalComponent } from './pages/apps/modelo/components/modelo-
   declarations: [
     AppComponent,
     SpinnerComponent,
-    ModeloPrincipalComponent,
   ],
   imports: [
     CommonModule,

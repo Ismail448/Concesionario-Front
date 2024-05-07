@@ -7,25 +7,27 @@
           <table class="table align-middle text-nowrap">
             <thead>
               <tr>
-                <th class="text-dark font-medium fs-4">Id</th>
-                <th class="text-dark font-medium fs-4">Nombre</th>
-                <th class="text-dark font-medium fs-4">Direccion</th>
-                <th class="text-dark font-medium fs-4">Telefono</th>
-                <th class="text-dark font-medium fs-4">Email</th>
-                <th class="text-dark font-medium fs-4">Sitio Web</th>
-                <th class="text-dark font-medium fs-4">Acciones</th>
+                <th class="text-center text-dark font-medium fs-4">Id</th>
+                <th class="text-center text-dark font-medium fs-4">Nombre</th>
+                <th class="text-center text-dark font-medium fs-4">Direccion</th>
+                <th class="text-center text-dark font-medium fs-4">Telefono</th>
+                <th class="text-center text-dark font-medium fs-4">Email</th>
+                <th class="text-center text-dark font-medium fs-4">Sitio Web</th>
+                <th class="text-center text-dark font-medium fs-4">Acciones</th>
+
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let c of paginatedConcesionario">
-                <td>{{c.id}}</td>
-                <td>{{c.nombre}}</td>
-                <td>{{c.direccion}}</td>
-                <td>{{c.telefono}}</td>
-                <td>{{c.email}}</td>
-                <td>{{c.sitioWeb}}</td>
+                <td class="text-center">{{c.id}}</td>
+                <td class="text-center">{{c.nombre}}</td>
+                <td class="text-center">{{c.direccion}}</td>
+                <td class="text-center">{{c.telefono}}</td>
+                <td class="text-center">{{c.email}}</td>
+                <td class="text-center">{{c.sitioWeb}}</td>
                 <td>
                   <button class="btn btn-primary" (click)="editarConcesionario(c)">Editar</button>
+                  &nbsp;
                   <button class="btn btn-danger" (click)="eliminarConcesionario(c)">Eliminar</button>
                 </td>
               </tr>

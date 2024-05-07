@@ -38,10 +38,10 @@ export class ConcesionarioService {
     return this.http.post<Concesionario[]>(`http://localhost:8081/concesionario/ConcesionarioJson`, body);
   }
 
-  editarConcesionario(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): Observable<Concesionario[]> {
-    const url = `${this.baseUrl}/ConcesionarioJson/${term}`;
+  editarConcesionario(id:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): Observable<Concesionario[]> {
+    const url = `${this.baseUrl}/ConcesionarioJson/${id}`;
     const body = {
-      "id": term,
+      "id": id,
       "nombre": nombreConcesionario,
       "direccion": direccion,
       "telefono": telefono,

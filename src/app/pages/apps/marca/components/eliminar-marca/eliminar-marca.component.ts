@@ -23,7 +23,7 @@ export class EliminarMarcaComponent {
       }
     }
 
-    eliminarConcesionarioId(term:string){
+    eliminarMarcaId(term:string){
       this.marcaService.eliminarMarca(term).subscribe(marcaId => {
         if (Array.isArray(marcaId)) {
           this.marcaBorrar = marcaId;

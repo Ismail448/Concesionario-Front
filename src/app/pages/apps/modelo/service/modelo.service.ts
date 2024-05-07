@@ -12,10 +12,26 @@ export class ModeloService {
   constructor(private http: HttpClient) { }
 
   getModelos(): Observable<Modelo[]> {
-    return this.http.get<Modelo[]>(`${this.baseUrl}/all`)
+    return this.http.get<Modelo[]>(`${this.baseUrl}/modelos`)
   }
 
   buscarModelos(): Observable<Modelo[]> {
     return this.http.get<Modelo[]>(`${this.baseUrl}/buscarModelos`)
+  }
+
+  eliminarModelo(id: string): Observable<Modelo[]> {
+    const url = `${ this.baseUrl }/${ id }`;
+    return this.http.delete<Modelo[]>( url )
+  }
+
+  crearModelo( nombreModelo: string, tipoCoche: string, anyoLanzamiento: string, marcaId: number[]): Observable<Modelo[]> {
+
+    const body = {
+      "nombre": nombreModelo,
+      "tipoCoche": tipoCoche,
+      "anyoLanzamiento": anyoLanzamiento,
+      "marcaId": marcaId
+    };
+    return this.http.put<Modelo[]>(this.baseUrl,body)
   }
 }

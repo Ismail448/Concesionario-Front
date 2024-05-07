@@ -4,6 +4,7 @@ export interface Marca {
   paisOrigen: string,
   sitioWeb: string,
   telefono: string,
-  anyoFundacion: string,
-
+  anyoFundacion: number,
+  modeloId?: string
 }
+

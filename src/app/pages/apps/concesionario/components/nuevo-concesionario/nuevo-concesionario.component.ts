@@ -53,8 +53,7 @@ export class NuevoConcesionarioComponent implements OnInit{
     this.concesionarioService.crearConcesionario(nombreConcesionario, direccion, telefono, email, sitioWeb, marcas)
     .subscribe(concesionarioCrear => {
         this.concesionarioCrear = concesionarioCrear;
-    }, error => {
-        console.error('Error al crear:', error);
+
     });
   }
 

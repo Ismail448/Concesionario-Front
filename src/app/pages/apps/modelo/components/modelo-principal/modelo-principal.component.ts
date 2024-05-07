@@ -3,6 +3,7 @@ import { ModeloService } from '../../service/modelo.service';
 import { ModalService } from '@developer-partners/ngx-modal-dialog';
 import { Modelo } from '../../interfaces/Modelo.model';
 import { NuevoModeloComponent } from '../nuevo-modelo/nuevo-modelo.component';
+import { EliminarModeloComponent } from '../eliminar-modelo/eliminar-modelo.component';
 
 @Component({
   selector: 'app-modelo-principal',
@@ -47,5 +48,17 @@ export class ModeloPrincipalComponent {
     .subscribe(nuevoModelo =>{
       this.modelos?.push(nuevoModelo)
     })
+    }
+
+    eliminarModelo(modelo: Modelo): void {
+      this.modalService.show<Modelo>(EliminarModeloComponent, {
+        title: 'Eliminar Modelo',
+        model: modelo,
+      }).result().subscribe(borrarModelo => {
+        const index = this.modelos?.findIndex(i => i.id === modelo.id);
+        if (index !== -1) {
+          this.modelos[index] = borrarModelo;
+        }
+      });
     }
 }

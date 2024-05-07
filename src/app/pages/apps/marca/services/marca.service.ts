@@ -20,7 +20,7 @@ export class MarcaService {
   }
 
   crearMarca(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string,
-    anyoFundacion: string, idModelo: string[] ): Observable<Marca[]> {
+    anyoFundacion: number, idModelo: string[] ): Observable<Marca[]> {
 
     const body = {
       "nombre": nombreMarca,
