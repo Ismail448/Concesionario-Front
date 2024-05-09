@@ -24,7 +24,9 @@ export class ConcesionarioService {
 
   crearConcesionario(
     nombreConcesionario: string, direccion: string, telefonoConcesionario: string, email: string, sitioWebConcesionario: string,
-    marcas:string[]): Observable<Concesionario[]> {
+    idMarcas:string[]): Observable<Concesionario[]> {
+
+    const marcas = idMarcas.map(id => ({ id }))
 
     const body = {
       "nombre": nombreConcesionario,
@@ -32,13 +34,13 @@ export class ConcesionarioService {
       "telefono": telefonoConcesionario,
       "email": email,
       "sitioWeb": sitioWebConcesionario,
-      "marcas": marcas,
+      "marcas": marcas
     };
 
-    return this.http.post<Concesionario[]>(`http://localhost:8081/concesionario/ConcesionarioJson`, body);
+    return this.http.post<Concesionario[]>(`http://localhost:8081/concesionario/registrarConcesionario`, body);
   }
 
-  editarConcesionario(id:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): Observable<Concesionario[]> {
+  /*editarConcesionario(id:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): Observable<Concesionario[]> {
     const url = `${this.baseUrl}/ConcesionarioJson/${id}`;
     const body = {
       "id": id,
@@ -49,7 +51,22 @@ export class ConcesionarioService {
       "sitioWeb": sitioWeb
     }
     return this.http.put<Concesionario[]>(url, body)
+  }*/
+  editarConcesionario(id: string, nombreConcesionario: string, direccion: string, telefono: string, email: string, sitioWeb: string, idMarcas: string[]): Observable<Concesionario[]> {
+    const marcas = idMarcas.map(id => ({ id }))
+    const url = `${this.baseUrl}/ConcesionarioJson/${id}`;
+    const body = {
+      "id": id,
+      "nombre": nombreConcesionario,
+      "direccion": direccion,
+      "telefono": telefono,
+      "email": email,
+      "sitioWeb": sitioWeb,
+      "marcas": marcas
+    };
+    return this.http.put<Concesionario[]>(url, body);
   }
+
 
 
 

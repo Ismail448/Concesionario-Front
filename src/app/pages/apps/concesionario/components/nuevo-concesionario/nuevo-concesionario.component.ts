@@ -57,15 +57,23 @@ export class NuevoConcesionarioComponent implements OnInit{
     });
   }
 
-  crear(nombreConcesionario: string, direccion: string, telefono: string, email: string, sitioWeb: string, marcas: string[]): void {
-    this.crearConcesionario(nombreConcesionario,direccion,telefono,email,sitioWeb,marcas);
-    location.reload();
+  crear(nombreConcesionario: string, direccion: string, telefono: string, email: string, sitioWeb: string): void {
+    const idSeleccionados = Object.keys(this.marcaSeleccionada).filter(id => this.marcaSeleccionada[id]);
+    if (idSeleccionados.length > 0) {
+      this.crearConcesionario(nombreConcesionario, direccion, telefono, email, sitioWeb, idSeleccionados);
+      location.reload();
+    } else {
+      console.log('Debes seleccionar al menos una marca antes de crear el concesionario.');
+    }
   }
+
 
   confirmarSeleccion(): void {
     const idSeleccionados = Object.keys(this.marcaSeleccionada).filter(id => this.marcaSeleccionada[id]);
-    this.crear(this.nombreConcesionario,this.direccion,this.telefono,this.email,this.sitioWeb, idSeleccionados);
-    this.dropdownOpen = false;
+    this.selectedMarcas = idSeleccionados; // Actualizar la lista de marcas seleccionadas
+    this.dropdownOpen = false; // Cerrar el dropdown después de confirmar la selección
   }
+
+
 }
 
