@@ -20,7 +20,8 @@ export class MarcaService {
   }
 
   crearMarca(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string,
-    anyoFundacion: number, idModelo: string[] ): Observable<Marca[]> {
+    anyoFundacion: number): Observable<Marca[]> {
+
 
     const body = {
       "nombre": nombreMarca,
@@ -28,9 +29,25 @@ export class MarcaService {
       "sitioWeb": sitioWeb,
       "telefono": telefono,
       "anyoFundacion": anyoFundacion,
-      "modelo": idModelo
+
     }
     return this.http.post<Marca[]>(`http://localhost:8081/marcas/MarcaJson`, body)
+  }
+
+  editarMarca(id: number,nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string,
+    anyoFundacion: number): Observable<Marca[]> {
+
+      const url = `${this.baseUrl}/MarcaJson/${id}`;
+    const body = {
+      "id": id,
+      "nombre": nombreMarca,
+      "paisOrigen": paisOrigen,
+      "sitioWeb": sitioWeb,
+      "telefono": telefono,
+      "anyoFundacion": anyoFundacion,
+
+    }
+    return this.http.put<Marca[]>(url, body)
   }
 
   eliminarMarca(id: string): Observable<Marca[]> {

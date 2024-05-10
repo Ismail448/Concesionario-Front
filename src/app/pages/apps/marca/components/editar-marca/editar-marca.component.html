@@ -1,1 +1,28 @@
-<p>editar-marca works!</p>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Id" class="form-control" [(ngModel)]="marca.id" #txtEditarId>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Nombre Marca" class="form-control" [(ngModel)]="marca.nombre" #txtEditarNombreMarca>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Pais de Origen" class="form-control" [(ngModel)]="marca.paisOrigen" #txtEditarPaisOrigen >
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Sitio Web" class="form-control" [(ngModel)]="marca.sitioWeb" #txtEditarSitioWeb>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Teléfono" class="form-control" [(ngModel)]="marca.telefono" #txtEditarTelefono>
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Año de Fundación" class="form-control" [(ngModel)]="marca.anyoFundacion" #txtEditarAnyoFundacion>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="editarMarca(+marca.id,txtEditarNombreMarca.value,txtEditarPaisOrigen.value,txtEditarSitioWeb.value,txtEditarTelefono.value,+txtEditarAnyoFundacion.value)">Editar Concesionario</button>
+  </div>
+</div>

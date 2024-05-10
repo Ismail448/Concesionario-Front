@@ -28,7 +28,7 @@ export class NuevaMarcaComponent {
     private readonly modalReference:ModalReference<Marca>
   ) { }
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.busquedaDeModelos();
   }
   busquedaDeModelos(): void {
@@ -42,25 +42,36 @@ export class NuevaMarcaComponent {
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
+  }*/
+
+  crearMarca(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: number): void {
+    this.marcaService.crearMarca(nombreMarca, paisOrigen, sitioWeb, telefono, anyoFundacion)
+      .subscribe(
+        marcaCrear => {
+          // La marca se creó con éxito, puedes recargar la página aquí si lo deseas
+          location.reload();
+        },
+        error => {
+          // Hubo un error al crear la marca, muestra el mensaje de error en la consola
+          console.error('Error al crear:', error.error);
+        }
+      );
   }
 
-  crearMarca(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: number, idModelo: string[]): void {
-    this.marcaService.crearMarca(nombreMarca, paisOrigen, sitioWeb, telefono, anyoFundacion, idModelo)
-    .subscribe(marcaCrear => {
-        this.marcaCrear = marcaCrear;
-    }, error => {
-        console.error('Error al crear:', error);
-    });
+  crear(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: number): void {
+    // Verificar si los campos obligatorios están completos antes de crear la marca
+    if (nombreMarca.trim() !== '' && paisOrigen.trim() !== '') {
+      this.crearMarca(nombreMarca, paisOrigen, sitioWeb, telefono, anyoFundacion);
+      location.reload(); // Recargar la página después de crear la marca
+    } else {
+      console.log('Por favor, completa el nombre de la marca y el país de origen antes de crearla.');
+    }
   }
 
-  crear(nombreMarca: string, paisOrigen: string, sitioWeb: string, telefono: string, anyoFundacion: number, idModelo: string[]): void {
-    this.crearMarca(nombreMarca,paisOrigen,sitioWeb,telefono,anyoFundacion,idModelo);
-    //location.reload();
-  }
 
-  confirmarSeleccion(): void {
+  /*confirmarSeleccion(): void {
     const idSeleccionados = Object.keys(this.modeloSeleccionado).filter(id => this.modeloSeleccionado[id]);
-    this.crear(this.nombreMarca,this.paisOrigen,this.sitioWeb,this.telefono,this.anyoFundacion, idSeleccionados);
-    this.dropdownOpen = false;
-  }
+    this.selectedModelos = idSeleccionados; // Actualizar la lista de marcas seleccionadas
+    this.dropdownOpen = false; // Cerrar el dropdown después de confirmar la selección
+  }*/
 }

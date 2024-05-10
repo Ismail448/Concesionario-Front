@@ -4,6 +4,7 @@ import { ModalService } from '@developer-partners/ngx-modal-dialog';
 import { MarcaService } from '../../services/marca.service';
 import { NuevaMarcaComponent } from '../nueva-marca/nueva-marca.component';
 import { EliminarMarcaComponent } from '../eliminar-marca/eliminar-marca.component';
+import { EditarMarcaComponent } from '../editar-marca/editar-marca.component';
 
 @Component({
   selector: 'app-marca-principal',
@@ -60,5 +61,17 @@ export class MarcaPrincipalComponent {
     .subscribe(nuevaMarca =>{
       this.marcas?.push(nuevaMarca)
     })
+    }
+
+    editarMarca(marca: Marca): void {
+      this.modalService.show<Marca>(EditarMarcaComponent, {
+        title: 'Editar marca',
+        model: marca,
+      }).result().subscribe(editarConcesionario => {
+        const index = this.marcas?.findIndex(g => g.id === marca.id)
+        if (index !== -1) {
+          this.marcas[index] = editarConcesionario;
+        }
+      })
     }
 }
