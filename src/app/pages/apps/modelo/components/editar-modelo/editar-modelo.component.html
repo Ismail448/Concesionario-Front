@@ -1,0 +1,37 @@
+<h3>Editar Modelo</h3>
+<div class="row mb-3">
+  <!-- <div class="col">
+    <input type="text" placeholder="ID" class="form-control" [(ngModel)]="modelo.id">
+  </div> -->
+  <div class="col">
+    <input type="text" placeholder="Nombre Modelo" class="form-control" [(ngModel)]="modelo.nombre" #txtEditarNombre>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Tipo de Coche" class="form-control" [(ngModel)]="modelo.tipoCoche" #txtEditarTipoCoche>
+  </div>
+  <div class="col">
+    <input type="number" placeholder="Año de Lanzamiento" class="form-control" [(ngModel)]="modelo.anyoLanzamiento" #txtEditarAnyoLanzamiento>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+    Selección de marca disponible
+  </button>
+  <div class="dropdown-menu" [class.show]="dropdownOpen">
+    <div *ngFor="let marca of marcas">
+      <label class="dropdown-item">
+        <input type="radio" name="marca" [(ngModel)]="marcaSeleccionadaId" [value]="marca.id"> {{ marca.nombre }}
+      </label>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="confirmarSeleccion()">Confirmar</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="editar(modelo.id, txtEditarNombre.value, txtEditarTipoCoche.value,+txtEditarAnyoLanzamiento.value, marcaSeleccionadaId)">Guardar Cambios</button>
+  </div>
+</div>

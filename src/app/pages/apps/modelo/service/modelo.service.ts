@@ -34,15 +34,16 @@ export class ModeloService {
 }
 
 
-  editarModelo( nombreModelo: string, tipoCoche: string, anyoLanzamiento: string, marcaId: string[]): Observable<Modelo[]> {
+  editarModelo(id:string, nombreModelo: string, tipoCoche: string, anyoLanzamiento: number, marcaId: string): Observable<Modelo[]> {
 
-    const marcas = marcaId.map(id => ({ id }))
+    const url = `${this.baseUrl}/modeloJson/${id}`;
     const body = {
+      "id": id,
       "nombre": nombreModelo,
       "tipoCoche": tipoCoche,
       "anyoLanzamiento": anyoLanzamiento,
-      "marcaId": marcas
+      "marcaId": marcaId
     };
-    return this.http.put<Modelo[]>(this.baseUrl,body)
+    return this.http.put<Modelo[]>(url,body)
   }
 }

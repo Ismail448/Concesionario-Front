@@ -7,13 +7,15 @@ import { ModeloRoutingModule } from './modelo-routing.module';
 import { ModeloPrincipalComponent } from './components/modelo-principal/modelo-principal.component';
 import { NuevoModeloComponent } from './components/nuevo-modelo/nuevo-modelo.component';
 import { EliminarModeloComponent } from './components/eliminar-modelo/eliminar-modelo.component';
+import { EditarModeloComponent } from './components/editar-modelo/editar-modelo.component';
 
 
 @NgModule({
   declarations: [
     ModeloPrincipalComponent,
     NuevoModeloComponent,
-    EliminarModeloComponent
+    EliminarModeloComponent,
+    EditarModeloComponent
   ],
   imports: [
     CommonModule,
