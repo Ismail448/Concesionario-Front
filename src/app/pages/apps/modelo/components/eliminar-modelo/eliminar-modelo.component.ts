@@ -23,14 +23,15 @@ export class EliminarModeloComponent {
       }
     }
 
-    eliminarModeloId(term:string){
-      this.modeloService.eliminarModelo(term).subscribe(modeloId => {
-        if (Array.isArray(modeloId)) {
-          this.modeloBorrar = modeloId;
-        } else {
-          this.modeloBorrar = [modeloId];
+    eliminarModeloId(): void {
+      this.modeloService.eliminarModelo(this.modelo.id.toString()).subscribe({
+        next: (response) => {
+          console.log('Modelo eliminado exitosamente', response);
+          location.reload(); // Recargar la página después de la eliminación
+        },
+        error: (error) => {
+          console.error('Error al eliminar el modelo: ', error);
         }
-        location.reload()
       });
     }
 }

@@ -11,6 +11,7 @@
                 <th class="text-dark font-medium fs-4">Nombre</th>
                 <th class="text-dark font-medium fs-4">Tipo de Coche</th>
                 <th class="text-dark font-medium fs-4">Año de Lanzamiento</th>
+                <!-- <th class="text-dark font-medium fs-4">Marca</th> -->
                 <th class="text-dark font-medium fs-4">Marca</th>
                 <th class="text-dark font-medium fs-4">Acciones</th>
               </tr>
@@ -21,7 +22,8 @@
                 <td>{{m.nombre}}</td>
                 <td>{{m.tipoCoche}}</td>
                 <td>{{m.anyoLanzamiento}}</td>
-                <td>{{m.marcaId}}</td>
+                <!-- <td>{{m.marcaId}}</td> -->
+                <td>{{m.nombreMarca}}</td>
                 <td>
                   <!-- <button class="btn btn-primary" (click)="editarConcesionario(c)">Editar</button> -->
                   <button class="btn btn-danger" (click)="eliminarModelo(m)">Eliminar</button>

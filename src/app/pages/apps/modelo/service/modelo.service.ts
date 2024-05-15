@@ -19,18 +19,29 @@ export class ModeloService {
     return this.http.get<Modelo[]>(`${this.baseUrl}/buscarModelos`)
   }
 
-  eliminarModelo(id: string): Observable<Modelo[]> {
-    const url = `${ this.baseUrl }/${ id }`;
-    return this.http.delete<Modelo[]>( url )
+  eliminarModelo(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  crearModelo( nombreModelo: string, tipoCoche: string, anyoLanzamiento: string, marcaId: number[]): Observable<Modelo[]> {
-
+  crearModelo(nombreModelo: string, tipoCoche: string, anyoLanzamiento: string, marcaId: string): Observable<Modelo[]> {
     const body = {
       "nombre": nombreModelo,
       "tipoCoche": tipoCoche,
       "anyoLanzamiento": anyoLanzamiento,
       "marcaId": marcaId
+    };
+    return this.http.post<Modelo[]>(`${this.baseUrl}/modeloJson`, body);
+}
+
+
+  editarModelo( nombreModelo: string, tipoCoche: string, anyoLanzamiento: string, marcaId: string[]): Observable<Modelo[]> {
+
+    const marcas = marcaId.map(id => ({ id }))
+    const body = {
+      "nombre": nombreModelo,
+      "tipoCoche": tipoCoche,
+      "anyoLanzamiento": anyoLanzamiento,
+      "marcaId": marcas
     };
     return this.http.put<Modelo[]>(this.baseUrl,body)
   }

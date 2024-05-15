@@ -3,6 +3,7 @@ export interface Modelo {
   nombre: string,
   tipoCoche: string,
   anyoLanzamiento: string,
-  marcaId: number
+  //marcaId: number
+  nombreMarca: string
   coches?: number[]
 }

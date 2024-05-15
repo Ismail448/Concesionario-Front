@@ -54,11 +54,8 @@ export class ModeloPrincipalComponent {
       this.modalService.show<Modelo>(EliminarModeloComponent, {
         title: 'Eliminar Modelo',
         model: modelo,
-      }).result().subscribe(borrarModelo => {
-        const index = this.modelos?.findIndex(i => i.id === modelo.id);
-        if (index !== -1) {
-          this.modelos[index] = borrarModelo;
-        }
+      }).result().subscribe(() => {
+        this.getModelos(); // Actualizar la lista de modelos después de eliminar
       });
     }
-}
+  }
