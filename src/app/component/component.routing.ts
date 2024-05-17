@@ -11,6 +11,7 @@ import { TableComponent } from './table/table.component';
 import { ConcesionarioPrincipalComponent } from '../pages/apps/concesionario/components/concesionario-principal/concesionario-principal.component';
 import { MarcaPrincipalComponent } from '../pages/apps/marca/components/marca-principal/marca-principal.component';
 import { ModeloPrincipalComponent } from '../pages/apps/modelo/components/modelo-principal/modelo-principal.component';
+import { CochePrincipalComponent } from '../pages/apps/coche/components/coche-principal/coche-principal.component';
 
 
 
@@ -29,6 +30,10 @@ export const ComponentsRoutes: Routes = [
       {
         path: 'modelo',
         component: ModeloPrincipalComponent
+      },
+      {
+        path: 'coche',
+        component: CochePrincipalComponent
       }
 			/*{
 				path: 'table',

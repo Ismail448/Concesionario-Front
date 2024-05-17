@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { CochePrincipalComponent } from './components/coche-principal/coche-principal.component';
 import { EditarCocheComponent } from './components/editar-coche/editar-coche.component';
 import { EliminarCocheComponent } from './components/eliminar-coche/eliminar-coche.component';

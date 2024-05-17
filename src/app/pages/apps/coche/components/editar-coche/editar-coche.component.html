@@ -1,1 +1,43 @@
-<p>editar-coche works!</p>
+<h3>Editar Coche</h3>
+<div class="row mb-3">
+  <!-- <div class="col">
+    <input type="text" placeholder="ID" class="form-control" [(ngModel)]="modelo.id">
+  </div> -->
+  <div class="col">
+    <input type="text" placeholder="Color" class="form-control" [(ngModel)]="coche.color">
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Matricula" class="form-control" [(ngModel)]="coche.matricula">
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="number" placeholder="Precio" class="form-control" [(ngModel)]="coche.precio">
+  </div>
+  <div class="col">
+    <ngb-datepicker
+      [(ngModel)]="coche.fechaFabricacion"
+      (ngModelChange)="onDateChange($event)">
+    </ngb-datepicker>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+    Selección de modelo disponible
+  </button>
+  <div class="dropdown-menu" [class.show]="dropdownOpen">
+    <div *ngFor="let modelo of modelos">
+      <label class="dropdown-item">
+        <input type="radio" name="marca" [(ngModel)]="modeloSeleccionadoId" [value]="modelo.id"> {{ modelo.nombre }}
+      </label>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="confirmarSeleccion()">Confirmar</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="editar(coche.id,coche.color,coche.matricula,coche.precio,coche.fechaFabricacion,modeloSeleccionadoId)">Guardar Cambios</button>
+  </div>
+</div>

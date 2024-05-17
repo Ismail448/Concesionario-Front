@@ -1,1 +1,53 @@
-<p>coche-principal works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title text-center">Coches</h4>
+        <div class="table-responsive">
+          <table class="table align-middle text-nowrap">
+            <thead>
+              <tr>
+                <th class="text-dark font-medium fs-4">Id</th>
+                <th class="text-dark font-medium fs-4">Modelo</th>
+                <th class="text-dark font-medium fs-4">Color</th>
+                <th class="text-dark font-medium fs-4">Matricula</th>
+                <th class="text-dark font-medium fs-4">Precio</th>
+                <th class="text-dark font-medium fs-4">Fecha de Fabricación</th>
+                <th class="text-dark font-medium fs-4">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of paginatedCoche">
+                <td>{{p.id}}</td>
+                <td>{{p.nombreModelo}}</td>
+                <td>{{p.color}}</td>
+                <td>{{p.matricula}}</td>
+                <td>{{p.precio + '€'}}</td>
+                <td>{{p.fechaFabricacion | date:'yyyy-MM-dd'}}</td>
+                <td>
+                  <button class="btn btn-primary" (click)="editarCoche(p)"style="border: none; background: none; padding: 0;"><img src="assets/images/logos/editar.png" width="50"/></button>
+                  &nbsp;
+                  <button class="btn btn-danger" (click)="eliminarCoche(p)"style="border: none; background: none; padding: 0;"><img src="assets/images/logos/eliminar.png" width="25"/></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <div class="card-body border-top">
+        <ngb-pagination
+          [collectionSize]="coches.length"
+          [(page)]="currentPage"
+          [pageSize]="pageSize"
+          (pageChange)="onPageChange($event)"
+          aria-label="Pagination"
+        ></ngb-pagination>
+      </div>
+    </div>
+</div>
+
+<div class="text-end">
+  <button (click)="crearElCoche()" style="border: none; background: none; padding: 0;"><img src="assets/images/logos/botonMas.png"  width="50"/></button>
+</div>

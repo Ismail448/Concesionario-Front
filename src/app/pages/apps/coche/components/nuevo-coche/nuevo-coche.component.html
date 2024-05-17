@@ -1,1 +1,37 @@
-<p>nuevo-coche works!</p>
+<h3>Añadir Modelo</h3>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Color" class="form-control" [(ngModel)]="color">
+  </div>
+  <div class="col">
+    <input type="text" placeholder="Matricula" class="form-control" [(ngModel)]="matricula">
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" placeholder="Precio" class="form-control" [(ngModel)]="precio">
+  </div>
+  <div class="col">
+    <ngb-datepicker [(ngModel)]="fechaFabricacion" (ngModelChange)="onDateChange($event)"></ngb-datepicker>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+    Selección de modelo disponible
+  </button>
+  <div class="dropdown-menu" [class.show]="dropdownOpen">
+    <div *ngFor="let modelo of modelos">
+      <label class="dropdown-item">
+        <input type="radio" name="modelo" [(ngModel)]="modeloSeleccionadoId" [value]="modelo.id"> {{ modelo.nombre }}
+      </label>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="confirmarSeleccion()">Confirmar</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="crearCoche()">Crear Modelo</button>
+  </div>
+</div>
