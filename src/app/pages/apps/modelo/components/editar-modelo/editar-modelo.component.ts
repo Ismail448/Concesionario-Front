@@ -34,8 +34,18 @@ export class EditarModeloComponent {
 
   ngOnInit(): void {
     this.busquedaDeMarcas();
+    this.cargarModelo();
   }
 
+  cargarModelo(): void {
+    // Verificar si el modelo tiene marcas asociadas
+    if (this.modelo && this.modelo.marcas) {
+      // Recorrer las marcas asociadas al modelo y marcar las casillas de verificación correspondientes
+      this.modelo.marcas.forEach((marca: { id: string | number; }) => {
+        this.marcaSeleccionada[marca.id] = true;
+      });
+    }
+  }
   busquedaDeMarcas(): void {
     this.marcaService.buscarMarcas().subscribe(
       marcas => {

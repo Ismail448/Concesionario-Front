@@ -1,6 +1,7 @@
 import { Marca } from "../../marca/interfaces/marca.model"
 
 export interface Modelo {
+  marcas: any
   id: string,
   nombre: string,
   tipoCoche: string,

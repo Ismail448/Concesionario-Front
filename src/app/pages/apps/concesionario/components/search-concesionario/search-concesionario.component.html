@@ -1,0 +1,100 @@
+<!-- <div class="container">
+  <div class="input-group mb-3">
+    <select class="form-select" [(ngModel)]="searchKey">
+      <option *ngFor="let key of searchKeys" [value]="key">{{ key }}</option>
+    </select>
+    <select class="form-select" [(ngModel)]="operation">
+      <option *ngFor="let op of operations" [value]="op">{{ op }}</option>
+    </select>
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="value">
+    <button class="btn btn-outline-secondary" type="button" (click)="addSearchCriteria()">Search</button>
+  </div>
+
+  <table class="table mt-3" *ngIf="concesionarios.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Sitio Web</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let concesionario of concesionarios">
+        <td>{{ concesionario.id }}</td>
+        <td>{{ concesionario.nombre }}</td>
+        <td>{{ concesionario.direccion }}</td>
+        <td>{{ concesionario.telefono }}</td>
+        <td>{{ concesionario.email }}</td>
+        <td>{{ concesionario.sitioWeb }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="concesionarios.length === 0">
+    <p>No se encontraron concesionarios con los criterios de búsqueda especificados.</p>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+
+  <div class="input-group mb-3">
+    <select class="form-select" [(ngModel)]="searchKey">
+      <option *ngFor="let key of searchKeys" [value]="key">{{ key }}</option>
+    </select>
+    <select class="form-select" [(ngModel)]="operation">
+      <option *ngFor="let op of operations" [value]="op">{{ op }}</option>
+    </select>
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="value">
+    <button class="btn btn-outline-secondary" type="button" (click)="addSearchCriteria()">Search</button>
+  </div>
+
+  <div *ngIf="advancedSearchVisible">
+  </div>
+
+  <div *ngIf="searchCriteria.length > 0" class="mb-3">
+    <h5>Applied Filters:</h5>
+    <ul class="list-group">
+      <li *ngFor="let criteria of searchCriteria" class="list-group-item">
+        {{ criteria.key }} {{ criteria.operation }} "{{ criteria.value }}"
+        <button class="btn btn-danger btn-sm float-end" (click)="removeSearchCriteria(criteria)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+</div> -->
+
+<div class="container">
+  <!-- Search Bar -->
+  <div class="input-group mb-3">
+    <select class="form-select" [(ngModel)]="searchKey">
+      <option *ngFor="let key of searchKeys" [value]="key">{{ key }}</option>
+    </select>
+    <select class="form-select" [(ngModel)]="operation">
+      <option *ngFor="let op of operations" [value]="op">{{ op }}</option>
+    </select>
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="value">
+    <button class="btn btn-outline-secondary" type="button" (click)="addSearchCriteria()">Search</button>
+  </div>
+
+  <!-- Advanced Search Toggle -->
+  <div *ngIf="advancedSearchVisible">
+    <!-- Here you can add more advanced search options -->
+  </div>
+
+  <!-- Display Applied Filters -->
+  <div *ngIf="searchCriteria.length > 0" class="mb-3">
+    <h5>Applied Filters:</h5>
+    <ul class="list-group">
+      <li *ngFor="let criteria of searchCriteria" class="list-group-item">
+        {{ criteria.key }} {{ criteria.operation }} "{{ criteria.value }}"
+        <button class="btn btn-danger btn-sm float-end" (click)="removeSearchCriteria(criteria)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+

@@ -26,9 +26,20 @@ export class EditarConcesionarioComponent {
     private concesionarioService: ConcesionarioService,
     private marcaService: MarcaService,
     private readonly modalReference: ModalReference<Concesionario>) {
-      if(this.modalReference.config.model){
+      if (this.modalReference.config.model) {
         let copy = {...this.modalReference.config.model};
-        this.concesionario=copy
+        this.concesionario = copy;
+
+        // Verificar si concesionario.marcas no es nulo antes de acceder a map
+        if (this.concesionario.marcas) {
+          // Obtener las marcas asociadas al concesionario
+          this.selectedMarca = this.concesionario.marcas.map((m: { id: any; }) => m.id);
+
+          // Marcar las marcas seleccionadas
+          this.selectedMarca.forEach(id => {
+            this.marcaSeleccionada[id] = true;
+          });
+        }
       }
     }
 
@@ -49,24 +60,6 @@ export class EditarConcesionarioComponent {
       this.dropdownOpen = !this.dropdownOpen;
     }
 
-    /*editarConcesionario(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): void {
-      this.concesionarioService.editarConcesionario(
-        term,nombreConcesionario,direccion,telefono,email,sitioWeb)
-        .subscribe(concesionarioEditar => {
-          if (Array.isArray(concesionarioEditar)) {
-            this.concesionarioEditar = concesionarioEditar
-          } else {
-            this.concesionarioEditar = [concesionarioEditar]
-          }
-        }, error => {
-          console.error('Error al editar:', error)
-        })
-    }
-
-    editar(term:string,nombreConcesionario:string,direccion:string,telefono:string,email:string,sitioWeb:string): void {
-      this.editarConcesionario(term,nombreConcesionario,direccion,telefono,email,sitioWeb);
-      location.reload()
-    }*/
     editarConcesionario(id: string, nombreConcesionario: string, direccion: string, telefono: string, email: string, sitioWeb: string, idMarcas: string[]): void {
       this.concesionarioService.editarConcesionario(
         id, nombreConcesionario, direccion, telefono, email, sitioWeb, idMarcas)

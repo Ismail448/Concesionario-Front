@@ -29,7 +29,7 @@
     <input type="text" placeholder="Nombre Concesionario" class="form-control" [(ngModel)]="concesionario.nombre" #txtEditarNombreConcesionario>
   </div>
   <div class="col">
-    <input type="text" placeholder="Dirección" class="form-control" [(ngModel)]="concesionario.direccion" #txtEditarDireccion >
+    <input type="text" placeholder="Dirección" class="form-control" [(ngModel)]="concesionario.direccion" #txtEditarDireccion>
   </div>
   <div class="col">
     <input type="text" placeholder="Teléfono" class="form-control" [(ngModel)]="concesionario.telefono" #txtEditarTelefono>
@@ -44,24 +44,24 @@
   </div>
 </div>
 
-<!-- Agregar sección para seleccionar marcas -->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
-    Selección de marcas disponibes
+    Selección de marcas disponibles
   </button>
   <div class="dropdown-menu" [class.show]="dropdownOpen">
     <div *ngFor="let m of marcas">
       <label class="dropdown-item">
-        <input type="checkbox" [(ngModel)]="marcaSeleccionada[m.id]" [value]="m.id"> Id: {{ m.id }} - Nombre: {{ m.nombre }}
+        <input type="checkbox" [(ngModel)]="marcaSeleccionada[m.id]" [checked]="marcaSeleccionada[m.id]"> Id: {{ m.id }} - Nombre: {{ m.nombre }}
       </label>
     </div>
     <button class="btn btn-primary" type="button" (click)="confirmarSeleccion()">Confirmar</button>
   </div>
 </div>
-
-<!-- Modificar botón de edición -->
+<br>
 <div class="row">
   <div class="col">
-    <button class="btn btn-primary" (click)="editar(concesionario.id,txtEditarNombreConcesionario.value,txtEditarDireccion.value,txtEditarTelefono.value,txtEditarEmail.value,txtEditarSitioWeb.value, selectedMarca)">Editar Concesionario</button>
+    <button class="btn btn-primary" (click)="editar(concesionario.id, txtEditarNombreConcesionario.value, txtEditarDireccion.value, txtEditarTelefono.value, txtEditarEmail.value, txtEditarSitioWeb.value, selectedMarca)">Editar Concesionario</button>
   </div>
 </div>
+
+

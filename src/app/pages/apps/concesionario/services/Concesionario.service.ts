@@ -56,16 +56,20 @@ export class ConcesionarioService {
     return this.http.put<Concesionario[]>(url, body);
   }
 
+  /*searchConcesionarios(searchRequest: any): Observable<any> {
+    const url = `${this.baseUrl}/concesionarios/search`;
+    return this.http.post<any>(url, searchRequest);
+  }
 
-
-
-  /*buscarConcesionariosPaginados(page: number = 0, size: number = 10): Observable<Page<Concesionario>> {
-    const params = new HttpParams()
-      .set('page', page.toString())
-      .set('size', size.toString());
-
-    return this.http.get<Page<Concesionario>>(`${this.baseUrl}/paginado`, { params });
+  gettConcesionarios(): Observable<Concesionario[]> {
+    return this.http.get<Concesionario[]>(`${this.baseUrl}/all`);
   }*/
+
+  searchConcesionarios(request: any): Observable<any> {
+    const url = `${this.baseUrl}/concesionarios/search`;
+    return this.http.post<any>(url, request);
+  }
+
 
 }
 
