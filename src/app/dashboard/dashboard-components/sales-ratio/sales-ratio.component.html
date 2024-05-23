@@ -1,39 +1,46 @@
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Sales Ratio</h4>
-        <h5 class="card-subtitle text-muted">Yearly Sales Report</h5>
-        <div class="bg-info p-3 rounded">
-            <div class="row">
-                <div class="col-md-4">
-                    <h6 class="text-white">Total Sales</h6>
-                    <h3 class="text-white mb-0">$10,345</h3>
-                </div>
-                <div class="col-md-4">
-                    <h6 class="text-white">This Month</h6>
-                    <h3 class="text-white mb-0">$7,545</h3>
-                </div>
-                <div class="col-md-4">
-                    <h6 class="text-white">This Week</h6>
-                    <h3 class="text-white mb-0">$1,345</h3>
-                </div>
-            </div>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Dashboard</h4>
+          <h5 class="card-subtitle text-muted">Precio coches</h5>
+          <div class="d-flex flex-column w-100" *ngIf="salesChartOptions.series">
+            <apx-chart [series]="salesChartOptions.series" [chart]="salesChartOptions.chart"
+                       [plotOptions]="salesChartOptions.plotOptions" [xaxis]="salesChartOptions.xaxis"
+                       [yaxis]="salesChartOptions.yaxis" [grid]="salesChartOptions.grid"
+                       [stroke]="salesChartOptions.stroke" [tooltip]="salesChartOptions.tooltip"
+                       [dataLabels]="salesChartOptions.dataLabels" [legend]="salesChartOptions.legend"
+                       [colors]="salesChartOptions.colors" [markers]="salesChartOptions.markers">
+            </apx-chart>
+          </div>
+          <div *ngIf="!salesChartOptions.series">
+            Loading chart data...
+          </div>
         </div>
-        <div class="row mt-3">
-            <!-- column -->
-            <div class="col-lg-12">
-                <div>
-                    <div class="d-flex flex-column w-100">
-                        <apx-chart [series]="salesChartOptions.series" [chart]="salesChartOptions.chart" [plotOptions]="salesChartOptions.plotOptions"
-                            [xaxis]="salesChartOptions.xaxis" [yaxis]="salesChartOptions.yaxis"
-                            [grid]="salesChartOptions.grid" [stroke]="salesChartOptions.stroke"
-                            [tooltip]="salesChartOptions.tooltip" [dataLabels]="salesChartOptions.dataLabels"
-                            [legend]="salesChartOptions.legend" [colors]="salesChartOptions.colors"
-                            [markers]="salesChartOptions.markers">
-                        </apx-chart>
-                    </div>
-                </div>
-            </div>
-            <!-- column -->
-        </div>
+      </div>
     </div>
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Lista de Coches</h4>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Nombre del Coche</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let coche of coches">
+                <td>{{ coche.nombreModelo }}</td>
+                <td>{{ coche.precio | currency }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
