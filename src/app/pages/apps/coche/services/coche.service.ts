@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Coche } from "../interfaces/Coche.model";
@@ -16,16 +16,11 @@ export class CocheService {
     return this.http.get<Coche[]>(`${this.baseUrl}/getCoche`)
   }
 
-  crearCoche(color:string, matricula:string, precio:number, fechaFabricacion: Date, modeloId: string): Observable<Coche[]>{
+  crearCoche(color: string, matricula: string, precio: number, fechaFabricacion: Date, modeloId: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = { color, matricula, precio, fechaFabricacion, modeloId };
 
-    const body = {
-    "color":color,
-    "matricula": matricula,
-    "precio": precio,
-    "fechaFabricacion": fechaFabricacion,
-    "modeloId": modeloId
-    }
-    return this.http.post<Coche[]>(`${this.baseUrl}/registrarCocheJson`, body)
+    return this.http.post(`${this.baseUrl}/registrarCocheJson`, body, { headers, responseType: 'text' });
   }
 
   editarCoche(id: number, color:string, matricula:string, precio:number, fechaFabricacion: Date, modeloId: string): Observable<Coche[]>{
