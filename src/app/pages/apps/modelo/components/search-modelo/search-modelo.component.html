@@ -1,0 +1,29 @@
+<div class="container">
+  <!-- Search Bar -->
+  <div class="input-group mb-3">
+    <select class="form-select" [(ngModel)]="searchKey" (ngModelChange)="updateOperations()">
+      <option *ngFor="let key of searchKeys" [value]="key">{{ key }}</option>
+    </select>
+    <select class="form-select" [(ngModel)]="operation">
+      <option *ngFor="let op of (searchKey === 'anyoLanzamiento' ? operations.number : operations.text)" [value]="op">{{ op }}</option>
+    </select>
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="value">
+    <button class="btn btn-outline-secondary" type="button" (click)="addSearchCriteria()">Search</button>
+  </div>
+
+  <!-- Advanced Search Toggle -->
+  <div *ngIf="advancedSearchVisible">
+    <!-- Here you can add more advanced search options -->
+  </div>
+
+  <!-- Display Applied Filters -->
+  <div *ngIf="searchCriteria.length > 0" class="mb-3">
+    <h5>Applied Filters:</h5>
+    <ul class="list-group">
+      <li *ngFor="let criteria of searchCriteria" class="list-group-item">
+        {{ criteria.key }} {{ criteria.operation }} "{{ criteria.value }}"
+        <button class="btn btn-danger btn-sm float-end" (click)="removeSearchCriteria(criteria)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>

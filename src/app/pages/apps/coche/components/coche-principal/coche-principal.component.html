@@ -1,4 +1,5 @@
 <div class="row">
+  <app-search-coche (searchResults)="onSearchResults($event)"></app-search-coche>
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -25,9 +26,13 @@
                 <td>{{p.precio + '€'}}</td>
                 <td>{{p.fechaFabricacion | date:'yyyy-MM-dd'}}</td>
                 <td>
-                  <button class="btn btn-primary" (click)="editarCoche(p)"style="border: none; background: none; padding: 0;"><img src="assets/images/logos/editar.png" width="50"/></button>
+                  <button class="btn btn-primary" (click)="editarCoche(p)" style="border: none; background: none; padding: 0;">
+                    <img src="assets/images/logos/editar.png" width="50"/>
+                  </button>
                   &nbsp;
-                  <button class="btn btn-danger" (click)="eliminarCoche(p)"style="border: none; background: none; padding: 0;"><img src="assets/images/logos/eliminar.png" width="25"/></button>
+                  <button class="btn btn-danger" (click)="eliminarCoche(p)" style="border: none; background: none; padding: 0;">
+                    <img src="assets/images/logos/eliminar.png" width="25"/>
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -42,12 +47,15 @@
           [(page)]="currentPage"
           [pageSize]="pageSize"
           (pageChange)="onPageChange($event)"
-          aria-label="Pagination"
-        ></ngb-pagination>
+          aria-label="Pagination">
+        </ngb-pagination>
       </div>
     </div>
-</div>
+  </div>
 
-<div class="text-end">
-  <button (click)="crearElCoche()" style="border: none; background: none; padding: 0;"><img src="assets/images/logos/botonMas.png"  width="50"/></button>
+  <div class="text-end">
+    <button (click)="crearElCoche()" style="border: none; background: none; padding: 0;">
+      <img src="assets/images/logos/botonMas.png" width="50"/>
+    </button>
+  </div>
 </div>

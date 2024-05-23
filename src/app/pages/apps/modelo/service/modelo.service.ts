@@ -46,4 +46,9 @@ export class ModeloService {
     };
     return this.http.put<Modelo[]>(url,body)
   }
+
+  searchModelo(request: any): Observable<any> {
+    const url = `${this.baseUrl}/modelos/search`;
+    return this.http.post<any>(url, request);
+  }
 }

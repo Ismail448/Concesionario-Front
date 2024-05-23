@@ -8,6 +8,7 @@ import { ModeloPrincipalComponent } from './components/modelo-principal/modelo-p
 import { NuevoModeloComponent } from './components/nuevo-modelo/nuevo-modelo.component';
 import { EliminarModeloComponent } from './components/eliminar-modelo/eliminar-modelo.component';
 import { EditarModeloComponent } from './components/editar-modelo/editar-modelo.component';
+import { SearchModeloComponent } from './components/search-modelo/search-modelo.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { EditarModeloComponent } from './components/editar-modelo/editar-modelo.
     ModeloPrincipalComponent,
     NuevoModeloComponent,
     EliminarModeloComponent,
-    EditarModeloComponent
+    EditarModeloComponent,
+    SearchModeloComponent
   ],
   imports: [
     CommonModule,

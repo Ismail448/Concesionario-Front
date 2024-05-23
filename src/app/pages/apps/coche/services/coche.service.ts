@@ -45,4 +45,9 @@ export class CocheService {
   eliminarCoche(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
+
+  searchCoche(request: any): Observable<any> {
+    const url = `${this.baseUrl}/coches/search`;
+    return this.http.post<any>(url, request);
+  }
 }

@@ -170,6 +170,7 @@ import { ConcesionarioStateService } from '../../services/concesionario-state.se
 import { EliminarConcesionarioComponent } from '../eliminar-concesionario/eliminar-concesionario.component';
 import { NuevoConcesionarioComponent } from '../nuevo-concesionario/nuevo-concesionario.component';
 import { EditarConcesionarioComponent } from '../editar-concesionario/editar-concesionario.component';
+import { MarcaService } from '../../../marca/services/marca.service';
 
 @Component({
   selector: 'app-concesionario-principal',
@@ -183,6 +184,7 @@ export class ConcesionarioPrincipalComponent implements OnInit {
   constructor(
     private concesionarioService: ConcesionarioService,
     private concesionarioStateService: ConcesionarioStateService,
+    private marcaService: MarcaService,
     private readonly modalService: ModalService
   ) { }
 

@@ -54,4 +54,9 @@ export class MarcaService {
     const url = `${ this.baseUrl }/${ id }`;
     return this.http.delete<Marca[]>( url )
   }
+
+  searchMarca(request: any): Observable<any> {
+    const url = `${this.baseUrl}/marcas/search`;
+    return this.http.post<any>(url, request);
+  }
 }

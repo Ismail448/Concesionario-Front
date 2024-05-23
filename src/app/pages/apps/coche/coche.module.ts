@@ -7,6 +7,7 @@ import { EditarCocheComponent } from './components/editar-coche/editar-coche.com
 import { EliminarCocheComponent } from './components/eliminar-coche/eliminar-coche.component';
 import { NuevoCocheComponent } from './components/nuevo-coche/nuevo-coche.component';
 import { CocheRoutingModule } from './coche-routing.module';
+import { SearchCocheComponent } from './components/search-coche/search-coche.component';
 
 
 
@@ -15,7 +16,8 @@ import { CocheRoutingModule } from './coche-routing.module';
     CochePrincipalComponent,
     EditarCocheComponent,
     EliminarCocheComponent,
-    NuevoCocheComponent
+    NuevoCocheComponent,
+    SearchCocheComponent
   ],
   imports: [
     CommonModule,

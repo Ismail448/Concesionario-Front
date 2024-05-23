@@ -1,4 +1,5 @@
-<div class="row">
+<!-- <div class="row">
+  <app-search-marca></app-search-marca>
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -50,4 +51,69 @@
 
 <div class="text-end">
   <button (click)="crearLaMarca()" style="border: none; background: none; padding: 0;"><img src="assets/images/logos/botonMas.png"  width="50"/></button>
+</div> -->
+
+
+<!-- marca-principal.component.html -->
+<div class="row">
+  <app-search-marca></app-search-marca>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title text-center">Marcas</h4>
+        <div class="table-responsive">
+          <table class="table align-middle text-nowrap">
+            <thead>
+              <tr>
+                <th class="text-dark font-medium fs-4">Id</th>
+                <th class="text-dark font-medium fs-4">Nombre</th>
+                <th class="text-dark font-medium fs-4">Pais de Origen</th>
+                <th class="text-dark font-medium fs-4">sitio Web</th>
+                <th class="text-dark font-medium fs-4">Teléfono</th>
+                <th class="text-dark font-medium fs-4">Año de Fundación</th>
+                <th class="text-dark font-medium fs-4">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of paginatedMarca">
+                <td>{{ m.id }}</td>
+                <td>{{ m.nombre }}</td>
+                <td>{{ m.paisOrigen }}</td>
+                <td>{{ m.sitioWeb }}</td>
+                <td>{{ m.telefono }}</td>
+                <td>{{ m.anyoFundacion }}</td>
+                <td>
+                  <button class="btn btn-primary" (click)="editarMarca(m)" style="border: none; background: none; padding: 0;">
+                    <img src="assets/images/logos/editar.png" width="50" />
+                  </button>
+                  &nbsp;
+                  <button class="btn btn-danger" (click)="eliminarMarca(m)" style="border: none; background: none; padding: 0;">
+                    <img src="assets/images/logos/eliminar.png" width="25" />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <div class="card-body border-top">
+        <ngb-pagination
+          [collectionSize]="marcas.length"
+          [(page)]="currentPage"
+          [pageSize]="pageSize"
+          (pageChange)="onPageChange($event)"
+          aria-label="Pagination"
+        ></ngb-pagination>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-end">
+    <button (click)="crearLaMarca()" style="border: none; background: none; padding: 0;">
+      <img src="assets/images/logos/botonMas.png" width="50" />
+    </button>
+  </div>
 </div>
+

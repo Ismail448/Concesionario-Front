@@ -7,6 +7,7 @@ import { MarcaPrincipalComponent } from "./components/marca-principal/marca-prin
 import { NuevaMarcaComponent } from "./components/nueva-marca/nueva-marca.component";
 import { EditarMarcaComponent } from './components/editar-marca/editar-marca.component';
 import { EliminarMarcaComponent } from './components/eliminar-marca/eliminar-marca.component';
+import { SearchMarcaComponent } from './components/search-marca/search-marca.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EliminarMarcaComponent } from './components/eliminar-marca/eliminar-mar
     MarcaPrincipalComponent,
     NuevaMarcaComponent,
     EditarMarcaComponent,
-    EliminarMarcaComponent
+    EliminarMarcaComponent,
+    SearchMarcaComponent
 
   ],
   imports: [
